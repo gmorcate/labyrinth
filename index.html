@@ -5331,14 +5331,14 @@
               sp.wasBiting = true;
               sp.biteAccumulator = 0;
               sp.lastBiteTime = now;
-              applyDamage(5, 'Spider bite!', 'hurt', false);
+              applyDamage(5, '🕷️ Spider bite!', 'hurt', false);
             } else {
               sp.wasBiting = true;
               sp.biteAccumulator = (sp.biteAccumulator || 0) + dt;
               if (sp.biteAccumulator >= 2.0) {
                 sp.biteAccumulator -= 2.0;
                 sp.lastBiteTime = now;
-                applyDamage(5, 'Spider bite!', 'hurt', false);
+                applyDamage(5, '🕷️ Spider bite!', 'hurt', false);
               }
             }
           } else {
