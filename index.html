@@ -5326,7 +5326,7 @@
         }
 
         if (!state.isDead) {
-          if (distPlayerToSpider < 1.56 && state.playerPos.y < 1.5) {
+          if (distPlayerToSpider < 1.1 && state.playerPos.y < 1.5) {
             if (!sp.wasBiting && now - (sp.lastBiteTime || 0) >= 2000) {
               sp.wasBiting = true;
               sp.biteAccumulator = 0;
