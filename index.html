@@ -4848,7 +4848,7 @@
         const curTile = worldToTile(state.playerPos.x, state.playerPos.z, labyrinthData.tileDim);
         snapPlayerToSafeFloorPosition(curTile.tr, curTile.tc);
         audio.playSfx('climb_ent');
-        logEvent('Dropped from Hedge Top.', 'climb');
+        logEvent('🛗 Lowered by Tree Ent.', 'climb');
         updateHudStats();
         return;
       }
@@ -4953,7 +4953,7 @@
         const elevBadge = document.getElementById('hud-elevation-badge');
         if (elevBadge) {
           if (elevMode === 'MINOTAUR') {
-            elevBadge.textContent = 'Perched View';
+            elevBadge.textContent = '👁️ Perched View';
             elevBadge.classList.remove('hidden');
           } else if (elevMode === 'ENT') {
             elevBadge.textContent = '🔝 Hedge Top Trot';
@@ -5204,7 +5204,7 @@
               state.playerPos.y = 0;
               snapPlayerToSafeFloorPosition(curTile.tr, curTile.tc);
               audio.playSfx('climb_ent');
-              logEvent('🛗 Dropped from Hedge.', 'climb');
+              logEvent('⬇️ Dropped from Hedge Top.', 'climb');
               updateHudStats();
             }
           }
