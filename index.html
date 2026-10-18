@@ -4811,7 +4811,7 @@
         state.playerPos.z = labyrinthData.sphinx.z;
         state.playerPos.y = 4.95;
         audio.playSfx('sphinx');
-        logEvent('✨ Sphinx activated! Advancing in 1s...', 'discover');
+        logEvent('✨ Accepted the Sphinx Challenge!', 'discover');
         updateDistanceCulling();
         updateDeviceTimeLighting();
         updateHudStats();
@@ -5136,7 +5136,7 @@
       if (nearAnyFountain && !state.discoveredThisLevel.fountain) {
         state.discoveredThisLevel.fountain = true;
         audio.playSfx('discover');
-        logEvent('⛲ Found Fountain of Youth! Safe zone.', 'discover');
+        logEvent('⛲ Found Fountain of Youth!', 'discover');
       }
 
       if (!state.isDead && !state.atFountainPaused) {
