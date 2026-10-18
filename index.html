@@ -384,7 +384,7 @@
             <span>ℹ️ INFO</span>
           </button>
           <button id="btn-reset-view" type="button" class="hud-btn-scaled hud-glass hover:bg-emerald-900/80 font-bold text-amber-200 flex items-center gap-2 cursor-pointer active:scale-95" title="Reset Camera View to Center (R)">
-            <span>🎯 RESET VIEW</span>
+            <span>👤 RESET VIEW</span>
           </button>
         </div>
 
@@ -392,8 +392,8 @@
           <div class="flex items-center justify-between gap-1.5 mb-1.5">
             <div class="flex items-center gap-1.5 flex-wrap">
               <span class="px-2 py-0.5 rounded bg-emerald-700/85 text-amber-300 font-bold hud-text-sm" id="hud-level">Level 1</span>
-              <span id="hud-elevation-badge" class="hidden px-2 py-0.5 rounded bg-amber-600/90 text-white font-semibold hud-text-sm">Perched View</span>
-              <span id="hud-fountain-pause-badge" class="hidden px-2 py-0.5 rounded bg-sky-600/90 text-white font-semibold hud-text-sm">🛡️ Fountain of Youth Safe</span>
+              <span id="hud-elevation-badge" class="hidden px-2 py-0.5 rounded bg-amber-600/90 text-white font-semibold hud-text-sm">👁️ Perched View</span>
+              <span id="hud-fountain-pause-badge" class="hidden px-2 py-0.5 rounded bg-sky-600/90 text-white font-semibold hud-text-sm">🛐 Sanctuary</span>
             </div>
             <span id="hud-real-clock" class="hud-text-sm font-mono text-emerald-200">00:00:00</span>
           </div>
@@ -4836,7 +4836,7 @@
         }
         state.playerPos.y = 0;
         audio.playSfx('climb_minotaur');
-        logEvent('Climbed down Minotaur.', 'climb');
+        logEvent('🪜 Climbed down Minotaur.', 'climb');
         updateHudStats();
         return;
       }
@@ -4848,7 +4848,7 @@
         const curTile = worldToTile(state.playerPos.x, state.playerPos.z, labyrinthData.tileDim);
         snapPlayerToSafeFloorPosition(curTile.tr, curTile.tc);
         audio.playSfx('climb_ent');
-        logEvent('Climbed down wall.', 'climb');
+        logEvent('Dropped from Hedge Top.', 'climb');
         updateHudStats();
         return;
       }
@@ -4863,7 +4863,7 @@
           state.playerPos.z = mino.z;
           state.playerPos.y = 4.95;
           audio.playSfx('climb_minotaur');
-          logEvent('🐂 Climbed Minotaur Statue.', 'climb');
+          logEvent('🪜 Climbed Minotaur Statue.', 'climb');
           updateHudStats();
           return;
         }
@@ -4879,7 +4879,7 @@
           state.playerPos.z = wallTopPos.z;
           state.playerPos.y = WALL_HEIGHT + 0.15;
           audio.playSfx('climb_ent');
-          logEvent('Climbed Tree Ent to wall top.', 'climb');
+          logEvent('🛗 Lifted by Tree Ent.', 'climb');
           updateHudStats();
           return;
         }
@@ -4956,7 +4956,7 @@
             elevBadge.textContent = 'Perched View';
             elevBadge.classList.remove('hidden');
           } else if (elevMode === 'ENT') {
-            elevBadge.textContent = 'Wall-Top Walk';
+            elevBadge.textContent = '🔝 Hedge Top Trot';
             elevBadge.classList.remove('hidden');
           } else {
             elevBadge.classList.add('hidden');
@@ -5204,7 +5204,7 @@
               state.playerPos.y = 0;
               snapPlayerToSafeFloorPosition(curTile.tr, curTile.tc);
               audio.playSfx('climb_ent');
-              logEvent('Dropped from wall top.', 'climb');
+              logEvent('🛗 Dropped from Hedge.', 'climb');
               updateHudStats();
             }
           }
@@ -5230,14 +5230,14 @@
             state.wasTouchingRose = true;
             state.roseDamageAccumulator = 0;
             state.lastRoseDamageTime = now;
-            applyDamage(1, '🌹 Rose bush thorns!', 'rose');
+            applyDamage(1, '🌹 Pricked by Thorny Rose Bush!', 'rose');
           } else {
             state.wasTouchingRose = true;
             state.roseDamageAccumulator += dt;
             if (state.roseDamageAccumulator >= 1.0) {
               state.roseDamageAccumulator -= 1.0;
               state.lastRoseDamageTime = now;
-              applyDamage(1, '🌹 Rose bush thorns!', 'rose');
+              applyDamage(1, '🌹 Pricked by Thorny Rose Bush!', 'rose');
             }
           }
         } else {
@@ -5330,14 +5330,14 @@
               sp.wasBiting = true;
               sp.biteAccumulator = 0;
               sp.lastBiteTime = now;
-              applyDamage(5, '🕷️ Spider bite!', 'hurt', false);
+              applyDamage(5, '🕷️ Bitten by Spider!', 'hurt', false);
             } else {
               sp.wasBiting = true;
               sp.biteAccumulator = (sp.biteAccumulator || 0) + dt;
               if (sp.biteAccumulator >= 2.0) {
                 sp.biteAccumulator -= 2.0;
                 sp.lastBiteTime = now;
-                applyDamage(5, '🕷️ Spider bite!', 'hurt', false);
+                applyDamage(5, '🕷️ Bitten by Spider!', 'hurt', false);
               }
             }
           } else {
@@ -5355,7 +5355,7 @@
             snk.triggered = true;
             snk.lingerTimer = 5.0;
             snk.mesh.visible = true;
-            applyDamage(30, '🐍 Venomous snake bite!', 'snake');
+            applyDamage(30, '🐍 Bitten by venomous Snake!', 'snake');
           }
         } else if (snk.triggered) {
           snk.lingerTimer -= dt;
