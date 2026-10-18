@@ -582,7 +582,7 @@
       menuOpen: false,
       soundEnabled: true,
       musicEnabled: true,
-      renderDistanceTier: 0, // 0: Normal (24m), 1: Far (42m), 2: High (68m), 3: Max (150m)
+      renderDistanceTier: 1, // 0: Normal (24m), 1: Far (42m), 2: High (68m), 3: Max (150m)
       playerGender: 'FEMALE', // 'FEMALE' | 'MALE'
       level: 1,
       gridSize: 5,
@@ -5034,7 +5034,7 @@
       const genBtn = document.getElementById('toggle-gender-btn');
       if (genBtn) genBtn.textContent = genderLabel;
 
-      const renderLabels = ['Normal (24m)', 'Far (42m)', 'High (68m)', 'Max (150m)'];
+      const renderLabels = ['Short (24m)', 'Normal (42m)', 'Far (68m)', 'Max (150m)'];
       const rBtn = document.getElementById('toggle-render-dist-btn');
       if (rBtn) rBtn.textContent = renderLabels[state.renderDistanceTier || 0];
     }
@@ -5617,7 +5617,7 @@
 
       document.getElementById('toggle-render-dist-btn').addEventListener('click', () => {
         state.renderDistanceTier = ((state.renderDistanceTier || 0) + 1) % 4;
-        const renderLabels = ['Normal (24m)', 'Far (42m)', 'High (68m)', 'Max (150m)'];
+        const renderLabels = ['Short (24m)', 'Normal (42m)', 'Far (68m)', 'Max (150m)'];
         updateDistanceCulling();
         updateDeviceTimeLighting();
         syncMenuButtonsUI();
