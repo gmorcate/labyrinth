@@ -1063,7 +1063,7 @@
     function triggerPlayerDeath() {
       state.isDead = true;
       state.climbedMode = null;
-      logEvent('💀 You died! Body turned to skeleton.', 'damage');
+      logEvent('💀 You have died...', 'damage');
       rebuildPlayerCharacterMesh();
       const banner = document.getElementById('death-banner');
       if (banner) banner.classList.remove('hidden');
@@ -5231,14 +5231,14 @@
             state.wasTouchingRose = true;
             state.roseDamageAccumulator = 0;
             state.lastRoseDamageTime = now;
-            applyDamage(1, '🌹 Pricked by Thorny Rose Bush!', 'rose');
+            applyDamage(1, '🌹 Pricked by Thorny Roses!', 'rose');
           } else {
             state.wasTouchingRose = true;
             state.roseDamageAccumulator += dt;
             if (state.roseDamageAccumulator >= 1.0) {
               state.roseDamageAccumulator -= 1.0;
               state.lastRoseDamageTime = now;
-              applyDamage(1, '🌹 Pricked by Thorny Rose Bush!', 'rose');
+              applyDamage(1, '🌹 Pricked by Thorny Roses!', 'rose');
             }
           }
         } else {
@@ -5356,7 +5356,7 @@
             snk.triggered = true;
             snk.lingerTimer = 5.0;
             snk.mesh.visible = true;
-            applyDamage(30, '🐍 Bitten by venomous Snake!', 'snake');
+            applyDamage(30, '🐍 Bitten by Venomous Snake!', 'snake');
           }
         } else if (snk.triggered) {
           snk.lingerTimer -= dt;
